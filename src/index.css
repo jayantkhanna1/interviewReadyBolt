@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-gray-900 text-white;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent;
+  }
+  
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-sm border border-white/20;
+  }
+  
+  .hover-lift {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}
+
+/* File upload animations */
+.file-upload-area {
+  transition: all 0.3s ease;
+}
+
+.file-upload-area:hover {
+  transform: translateY(-2px);
+}
+
+/* Button animations */
+.btn-primary {
+  @apply bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg;
+}
+
+.btn-secondary {
+  @apply bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg;
+}
+
+/* Loading animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Interview call styles */
+.call-controls {
+  @apply flex items-center justify-center space-x-4 p-4 bg-gray-800 rounded-lg;
+}
+
+.call-control-btn {
+  @apply p-3 rounded-full transition-colors duration-200;
+}
+
+.call-control-btn.active {
+  @apply bg-gray-600 hover:bg-gray-500 text-white;
+}
+
+.call-control-btn.inactive {
+  @apply bg-red-600 hover:bg-red-700 text-white;
+}
+
+.call-control-btn.end-call {
+  @apply bg-red-600 hover:bg-red-700 text-white;
+}
+
+/* Feedback page styles */
+.score-circle {
+  @apply relative inline-block;
+}
+
+.score-display {
+  @apply w-32 h-32 rounded-full border-8 border-gray-700 flex items-center justify-center;
+}
+
+.score-inner {
+  @apply w-24 h-24 rounded-full flex items-center justify-center;
+}
+
+.score-text {
+  @apply text-2xl font-bold text-white;
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+  .mobile-stack {
+    @apply flex-col space-y-4 space-x-0;
+  }
+  
+  .mobile-full {
+    @apply w-full;
+  }
+}
+
+/* Dark theme enhancements */
+.dark-card {
+  @apply bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl;
+}
+
+.dark-input {
+  @apply bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+}
+
+.dark-button {
+  @apply bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+}
+
+/* Interview video container */
+.video-container {
+  @apply relative aspect-video bg-gray-900 rounded-lg overflow-hidden;
+}
+
+.video-overlay {
+  @apply absolute inset-0 flex items-center justify-center bg-gray-900/50;
+}
+
+/* Status indicators */
+.status-indicator {
+  @apply flex items-center space-x-2;
+}
+
+.status-dot {
+  @apply w-2 h-2 rounded-full;
+}
+
+.status-dot.active {
+  @apply bg-green-500 animate-pulse;
+}
+
+.status-dot.inactive {
+  @apply bg-red-500;
+}
+
+.status-dot.pending {
+  @apply bg-yellow-500 animate-pulse;
+}
